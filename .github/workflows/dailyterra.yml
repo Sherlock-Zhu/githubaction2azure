@@ -12,7 +12,6 @@ jobs:
       terrapath: /wo/tool/terraform/daily1/aks/
     defaults:
       run:
-        shell: bash
         working-directory: scripts
     steps:
     - name: checkout 
