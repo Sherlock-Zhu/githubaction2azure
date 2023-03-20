@@ -10,12 +10,18 @@ jobs:
     runs-on: self-hosted
     env:
       terrapath: /wo/tool/terraform/daily1/aks/
+    defaults:
+      run:
+        shell: bash
+        working-directory: scripts
     steps:
     - name: checkout 
       uses: actions/checkout@v1
     - name: plan the job
-      run: terraform -chdir=$terrapath plan -out $terrapath/daily.tfplan
-    - name: execute the job
-      run: terraform -chdir=$terrapath apply $terrapath/daily.tfplan
+      run: pwd
+#    - name: plan the job
+#      run: terraform -chdir=$terrapath plan -out $terrapath/daily.tfplan
+#    - name: execute the job
+#      run: terraform -chdir=$terrapath apply $terrapath/daily.tfplan
   
     
