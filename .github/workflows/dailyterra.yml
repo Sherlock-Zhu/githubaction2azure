@@ -18,12 +18,10 @@ jobs:
       uses: actions/checkout@v1
     - name: plan the job
       run: |
-        pwd
-        source .azure_env
-        echo $ARM_SUBSCRIPTION_ID
-#    - name: plan the job
-#      run: terraform -chdir=$terrapath plan -out $terrapath/daily.tfplan
-#    - name: execute the job
-#      run: terraform -chdir=$terrapath apply $terrapath/daily.tfplan
+        terraform -chdir=$terrapath plan -out $terrapath/daily.tfplan
+    - name: execute the job
+      run: |
+        source .azure_env      
+        terraform -chdir=$terrapath apply $terrapath/daily.tfplan
   
     
