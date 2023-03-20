@@ -12,7 +12,7 @@ jobs:
       terrapath: /wo/tool/terraform/daily1/aks/
     defaults:
       run:
-        working-directory: scripts
+        working-directory: /wo/tool/terraform
     steps:
     - name: checkout 
       uses: actions/checkout@v1
