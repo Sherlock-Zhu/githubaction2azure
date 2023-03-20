@@ -2,12 +2,17 @@
 
 on: 
   workflow_dispatch:
-  
+  workflow_run:
+    workflows: [StartJSEveryDay]
+    types:
+      - completed
+      
 name: dailyterra
 
 jobs:
   runterra:
     runs-on: self-hosted
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     env:
       terrapath: /wo/tool/terraform/daily1/aks/
     defaults:
