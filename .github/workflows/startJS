@@ -1,0 +1,25 @@
+# File: .github/workflows/startJS.yml
+
+on: [push]
+name: StartJSEveryDay
+
+
+jobs:
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Azure CLI script file
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+          az vm start -g RUNLONGDAILY -n sh-daily-work
