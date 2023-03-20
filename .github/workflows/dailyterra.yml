@@ -1,0 +1,21 @@
+# File: .github/workflows/test.yml
+
+on: 
+  workflow_dispatch:
+  
+name: dailyterra
+
+jobs:
+  runterra:
+    runs-on: self-hosted
+    env:
+      terrapath: /wo/tool/terraform/daily1/aks/
+    steps:
+    - name: checkout 
+      uses: actions/checkout@v1
+    - name: plan the job
+      run: terraform -chdir=$terrapath plan -out $terrapath/daily.tfplan
+    - name: execute the job
+      run: terraform -chdir=$terrapath apply $terrapath/daily.tfplan
+  
+    
