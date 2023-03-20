@@ -18,6 +18,7 @@ jobs:
       uses: actions/checkout@v1
     - name: plan the job
       run: |
+        source .azure_env      
         terraform -chdir=$terrapath plan -out $terrapath/daily.tfplan
     - name: execute the job
       run: |
