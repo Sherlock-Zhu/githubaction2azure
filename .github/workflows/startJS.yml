@@ -10,7 +10,7 @@ name: StartJSEveryDay
 
 jobs:
 
-  build-and-deploy:
+  startVM:
     runs-on: ubuntu-latest
     steps:
 
