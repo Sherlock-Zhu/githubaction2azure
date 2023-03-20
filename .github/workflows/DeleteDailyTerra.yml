@@ -1,0 +1,26 @@
+# File: .github/workflows/DeleteDailyTerra.yml
+
+on: 
+  workflow_dispatch:
+  
+name: DeleteDailyTerra
+
+jobs:
+  runterra:
+    runs-on: self-hosted
+    env:
+      terrapath: /wo/tool/terraform/daily1/aks/
+    defaults:
+      run:
+        working-directory: /wo/tool/terraform
+    steps:
+    - name: checkout 
+      uses: actions/checkout@v1
+    - name: plan the job
+      run: |
+        source .azure_env      
+        terraform -chdir=$terrapath plan -destroy -out $terrapath/des_daily.tfplan
+    - name: execute the job
+      run: |
+        source .azure_env      
+        terraform -chdir=$terrapath apply $terrapath/des_daily.tfplan
