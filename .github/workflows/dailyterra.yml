@@ -24,7 +24,7 @@ jobs:
     - name: plan the job
       run: |
         source .azure_env
-        run_terraform $run_terraform
+        run_terraform $terrapath
 #        terraform -chdir=$terrapath plan -out $terrapath/daily.tfplan
 #    - name: execute the job
 #      run: |
