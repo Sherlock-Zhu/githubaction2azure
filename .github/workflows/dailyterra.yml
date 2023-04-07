@@ -23,11 +23,12 @@ jobs:
       uses: actions/checkout@v1
     - name: plan the job
       run: |
-        source .azure_env      
-        terraform -chdir=$terrapath plan -out $terrapath/daily.tfplan
-    - name: execute the job
-      run: |
-        source .azure_env      
-        terraform -chdir=$terrapath apply $terrapath/daily.tfplan
+        source .azure_env
+        run_terraform $run_terraform
+#        terraform -chdir=$terrapath plan -out $terrapath/daily.tfplan
+#    - name: execute the job
+#      run: |
+#        source .azure_env      
+#        terraform -chdir=$terrapath apply $terrapath/daily.tfplan
   
     
