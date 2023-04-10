@@ -6,7 +6,7 @@ on:
 name: 0DeleteDailyTerra
 
 jobs:
-  runterra:
+  destroyterra:
     runs-on: self-hosted
     env:
       terrapath: /wo/tool/terraform/daily1/aks/
