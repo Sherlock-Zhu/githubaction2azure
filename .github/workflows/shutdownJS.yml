@@ -10,7 +10,7 @@ name: shutdownJS
 
 
 jobs:
-  startVM:
+  StopVM:
     runs-on: ubuntu-latest
     steps:
     - name: Azure Login
