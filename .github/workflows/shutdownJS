@@ -2,7 +2,7 @@
 
 on: 
   workflow_run:
-    workflows: [DeleteDailyTerra]
+    workflows: [0DeleteDailyTerra]
     types:
       - completed
     
