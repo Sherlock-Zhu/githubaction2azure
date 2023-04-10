@@ -1,9 +1,9 @@
-# File: .github/workflows/DeleteDailyTerra.yml
+# File: .github/workflows/0DeleteDailyTerra.yml
 
 on: 
   workflow_dispatch:
   
-name: DeleteDailyTerra
+name: 0DeleteDailyTerra
 
 jobs:
   runterra:
