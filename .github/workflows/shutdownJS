@@ -1,0 +1,27 @@
+# File: .github/workflows/ShutdownJS.yml
+
+on: 
+  workflow_run:
+    workflows: [DeleteDailyTerra]
+    types:
+      - completed
+    
+name: shutdownJS
+
+
+jobs:
+  startVM:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Azure CLI script file
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+          az vm stop -g RUNLONGDAILY -n sh-daily-work
+    
