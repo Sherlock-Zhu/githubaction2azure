@@ -1,0 +1,32 @@
+# File: .github/workflows/startJS.yml
+
+on: 
+  schedule:
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+    
+name: disdefender
+
+
+jobs:
+  DisableDefender:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Azure CLI script file
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+          for i in $(az security pricing list|jq '.value[].name'|tr -d '"'); do az security pricing create -n $i --tier 'Free';echo "$i done"; done;
+    - name: Azure CLI script file
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+          az security pricing list| jq '.value[].pricingTier'| grep -i free|wc -l
+
+    
