@@ -2,10 +2,10 @@
 
 on: 
   workflow_dispatch:
-  workflow_run:
-    workflows: [StartJSEveryDay]
-    types:
-      - completed
+  # workflow_run:
+  #   workflows: [StartJSEveryDay]
+  #   types:
+  #     - completed
       
 name: dailyterra
 
