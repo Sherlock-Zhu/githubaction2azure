@@ -7,4 +7,7 @@ jobs:
     # You need to use the INSTALLATION_NAME from the previous step
     runs-on: arc-runnerdeploy-7zbfs-fx22s
     steps:
-    - run: echo "🎉 This job uses runner scale set runners!"
+    - name: hello
+      run: echo "🎉 This job uses runner scale set runners!"
+    - name: sleep
+      run: sleep 1000
