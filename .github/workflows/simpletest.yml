@@ -5,9 +5,9 @@ on:
 jobs:
   Explore-GitHub-Actions:
     # You need to use the INSTALLATION_NAME from the previous step
-    runs-on: arc-runnner
+    runs-on: arc-runnner-set
     steps:
     - name: hello
       run: echo "🎉 This job uses runner scale set runners!"
     - name: sleep
-      run: sleep 1000
+      run: sleep 100
